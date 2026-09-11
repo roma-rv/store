@@ -81,18 +81,27 @@ function createCardProducts(itemList, mode="All") {
     })
 }
 
-function chooseMode(changeMode) {
-    const select = document.getElementById("select");
+const select = document.getElementById("select");
 
-    select.addEventListener("change", (e) => {
-        changeMode(select.value);
-    })
-}
+select.addEventListener("change", (e) => {
+    createCardProducts(products, e.target.value);
+})
 
-function changeMode(saveMode) {
-    changeMode.savedMode = saveMode;
-    createCardProducts(products, changeMode.savedMode);
-}
+
+
+
+
+
+// function chooseMode(changeMode) {
+
+//     select.addEventListener("change", (e) => {
+//         changeMode(select.value);
+//     })
+// }
+
+// function changeMode(saveMode) {
+//     changeMode.savedMode = saveMode;
+//     createCardProducts(products, changeMode.savedMode);
+// }
 
 createCardProducts(products);
-chooseMode(changeMode);
