@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
     <select id="select">
@@ -15,12 +16,17 @@
         <option value="Smartwatches">Smartwatches</option>
         <option value="Tablets">Tablets</option>
     </select>
+    <div class="basket-container" id="basket-item">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span id="number-add-product" class="number-add-product">0</span>
+    </div>
     <div class="shop">
         <div class="header" id="header"></div>
         <div class="main" id="products-container">
             <!-- <div class="product">
                 <p>Product name: </p>
                 <p>Product price: </p>
+                <button id="add-btn" class="add-btn">Add in basket</button>
             </div> -->
         </div>
         <div class="footer" id="cart-container"></div>
