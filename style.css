@@ -77,7 +77,7 @@ select {
   justify-content: center;
   align-items: center;
   margin: 0 10px;
-
+  margin-bottom: 10px;
 }
 
 .add-btn {
@@ -86,4 +86,13 @@ select {
   border-radius: 5px;
   outline: none;
   background-color: rgb(221, 114, 212);
+}
+
+.main-basket-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50px;
+  margin: 0 5px;
 }

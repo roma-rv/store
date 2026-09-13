@@ -60,14 +60,36 @@ const products = [
   { id: 50, category: "Tablets", name: "2-in-1 Convertible Tablet PrimeBook 14", price: 159900, quantity: 2, message: "Out of stock" }
 ];
 
+let counterBusket = 0;
+
+let total = 0;
+
+
 function createCardProducts(itemList, mode="All") {
     const productsContainer = document.getElementById("products-container");
-    const quantityProductsInBuscet = document.getElementById("number-add-product");
+    const quantityProductsInbusket = document.getElementById("number-add-product");
+    const totalPrice = document.getElementById("total-price");
+
+    if (localStorage.getItem("busket")) {
+        counterBusket = Number(localStorage.getItem("busket")); 
+        quantityProductsInbusket.textContent = counterBusket;
+    }
+
+    if (localStorage.getItem("totalPriceProducts")) {
+        total = Number(localStorage.getItem("totalPriceProducts")); 
+        totalPrice.textContent = total;
+    }
 
     // Clear container before changing mode
     productsContainer.innerHTML = "";
+
+    
     
     itemList.forEach((product, index) => {
+        // console.log(localStorage.gettem(product.quantity));
+        if (localStorage.getItem(product.name)) {
+            product.quantity = Number(localStorage.getItem(product.name));
+        }
         if (mode === "All" || product.category === mode) {
             const productCard = document.createElement("div");
             const productName = document.createElement("p");
@@ -84,7 +106,13 @@ function createCardProducts(itemList, mode="All") {
                     return;
                 }
                 product.quantity--;
-                quantityProductsInBuscet.textContent++;
+                counterBusket++;
+                quantityProductsInbusket.textContent = counterBusket;
+                localStorage.setItem(product.name, product.quantity);
+                localStorage.setItem("busket", counterBusket);
+                total += product.price;
+                totalPrice.textContent = total;
+                localStorage.setItem("totalPriceProducts", total);
                 if (product.quantity <= 0) {
                     productQuantity.textContent = `Product quantity: ${product.message}`;
                 } else {
